@@ -629,7 +629,7 @@ impl Generator for Wasmtime {
             self.src.push_str(&format!(
                 "
                     let func = get_func(&mut caller, \"{name}\")?;
-                    let func_{name} = func.typed::<{cvt}, _>(&caller)?;
+                    let func_{name} = func.typed::<{cvt}>(&caller)?;
                 ",
                 name = name,
                 cvt = func.cvt(),
@@ -726,7 +726,7 @@ impl Generator for Wasmtime {
             self.src
                 .push_str(&format!("let func_{0} = &self.{0};\n", name));
             let get = format!(
-                "instance.get_typed_func::<{}, _>(&mut store, \"{}\")?",
+                "instance.get_typed_func::<{}>(&mut store, \"{}\")?",
                 func.cvt(),
                 name
             );
@@ -784,7 +784,7 @@ impl Generator for Wasmtime {
             (
                 format!("wasmtime::TypedFunc<{}>", cvt),
                 format!(
-                    "instance.get_typed_func::<{}, _>(&mut store, \"{}\")?",
+                    "instance.get_typed_func::<{}>(&mut store, \"{}\")?",
                     cvt, func.name,
                 ),
             ),
@@ -1138,7 +1138,7 @@ impl Generator for Wasmtime {
                 self.src.push_str(&format!(
                     "
                         get_state(store.data_mut()).dtor{} = \
-                            Some(instance.get_typed_func::<i32, (), _>(\
+                            Some(instance.get_typed_func::<i32, ()>(\
                                 &mut store, \
                                 \"canonical_abi_drop_{}\", \
                             )?);\n

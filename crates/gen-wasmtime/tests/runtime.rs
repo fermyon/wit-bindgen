@@ -103,7 +103,7 @@ fn _instantiate_smw<I: Default, E: Default, T>(
     let (exports, instance) = mk_exports(&mut store, &module, &mut linker)?;
 
     println!("running wizer.initialize");
-    let init = instance.get_typed_func::<(), (), _>(&mut store, "wizer.initialize")?;
+    let init = instance.get_typed_func::<(), ()>(&mut store, "wizer.initialize")?;
     init.call(&mut store, ())
         .context("failed to call wizer.initialize")?;
     Ok((exports, store))
