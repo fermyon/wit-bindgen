@@ -22,7 +22,7 @@ required-features = ["cli"]
 [dependencies]
 wasmparser = "0.86.0"
 wasm-encoder = "0.13.0"
-wat = "1.0.66"
+wat = "1.0.68"
 wit-parser = { path = "../parser" }
 anyhow = "1.0.55"
 indexmap = "1.8.0"
