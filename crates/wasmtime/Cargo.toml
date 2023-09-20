@@ -8,7 +8,7 @@ edition = "2018"
 anyhow = "1.0"
 bitflags = "1.2"
 thiserror = "1.0"
-wasmtime = { git = "https://github.com/bytecodealliance/wasmtime", rev = "592ddc52" }
+wasmtime = { git = "https://github.com/bytecodealliance/wasmtime", rev = "2ad057d7" }
 wit-bindgen-wasmtime-impl = { path = "../wasmtime-impl", version = "0.2" }
 tracing-lib = { version = "0.1.26", optional = true, package = 'tracing' }
 async-trait = { version = "0.1.50", optional = true }
